@@ -204,3 +204,725 @@
   }
   .stat-label { font-size: .78rem; color: var(--sand); margin-top: .2rem; }
   .stat-icon { font-size
+
+                /* ─── CATEGORY TABS ─── */
+  .categories {
+    padding: 0 2.5rem;
+    background: var(--earth);
+    display: flex; gap: 0; overflow-x: auto;
+    border-bottom: 2px solid rgba(200,168,75,.2);
+  }
+  .categories::-webkit-scrollbar { height: 0; }
+
+  .cat-tab {
+    padding: 1rem 1.6rem;
+    font-size: .8rem; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--sand);
+    cursor: pointer; white-space: nowrap;
+    border-bottom: 3px solid transparent;
+    transition: color .2s, border-color .2s;
+    background: none; border-top: none; border-left: none; border-right: none;
+    font-family: 'Syne', sans-serif;
+  }
+  .cat-tab.active { color: var(--wheat); border-bottom-color: var(--wheat); }
+  .cat-tab:hover { color: var(--cream); }
+
+  /* ─── SECTION ─── */
+  .section {
+    padding: 4rem 2.5rem;
+  }
+
+  .section-header {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: .72rem; color: var(--moss);
+    letter-spacing: .15em; text-transform: uppercase;
+    margin-bottom: .4rem;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem; line-height: 1.1; color: var(--earth);
+  }
+  .section-title em { color: var(--moss); font-style: italic; }
+
+  .see-all {
+    font-size: .8rem; font-weight: 700; color: var(--moss);
+    text-decoration: none; letter-spacing: .08em; text-transform: uppercase;
+    border-bottom: 1px solid var(--moss);
+    padding-bottom: 2px; white-space: nowrap;
+    transition: color .2s;
+  }
+  .see-all:hover { color: var(--rust); border-color: var(--rust); }
+
+  /* ─── PRODUCT GRID ─── */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .product-card {
+    background: var(--white);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(44,26,14,.1);
+    transition: transform .25s, box-shadow .25s;
+    cursor: pointer;
+    position: relative;
+  }
+  .product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(44,26,14,.15);
+  }
+
+  .product-img {
+    height: 200px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 4rem;
+    position: relative; overflow: hidden;
+  }
+
+  .product-img.agro { background: linear-gradient(135deg, #EAF4E0, #C8E6B0); }
+  .product-img.tech { background: linear-gradient(135deg, #E0EEF8, #B0D0E8); }
+
+  .product-badge {
+    position: absolute; top: .7rem; left: .7rem;
+    padding: .2rem .6rem; border-radius: 4px;
+    font-size: .65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+  }
+  .badge-new { background: var(--leaf); color: #fff; }
+  .badge-promo { background: var(--rust); color: #fff; }
+  .badge-bio { background: var(--moss); color: #fff; }
+  .badge-stock { background: var(--tech-blue); color: #fff; }
+
+  .product-fav {
+    position: absolute; top: .7rem; right: .7rem;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(255,255,255,.8); border: none;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 1rem;
+    transition: background .2s, transform .15s;
+  }
+  .product-fav:hover { background: #fff; transform: scale(1.1); }
+  .product-fav.active { background: #fff; }
+  .product-fav.active::after { content: '❤️'; }
+
+  .product-body { padding: 1rem 1.1rem 1.3rem; }
+
+  .product-cat {
+    font-size: .68rem; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--moss); margin-bottom: .3rem;
+  }
+  .product-cat.tech-cat { color: var(--tech-blue); }
+
+  .product-name {
+    font-family: 'Syne', sans-serif;
+    font-size: .95rem; font-weight: 700; color: var(--earth);
+    margin-bottom: .4rem; line-height: 1.3;
+  }
+
+  .product-rating {
+    display: flex; align-items: center; gap: .4rem;
+    margin-bottom: .7rem;
+  }
+  .stars { color: var(--wheat); font-size: .8rem; letter-spacing: .05em; }
+  .rating-count { font-size: .72rem; color: #888; }
+
+  .product-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: .8rem;
+  }
+
+  .price-block {}
+  .price-old { font-size: .75rem; color: #999; text-decoration: line-through; }
+  .price { font-family: 'Space Mono', monospace; font-size: 1.1rem; font-weight: 700; color: var(--earth); }
+  .price-unit { font-size: .72rem; color: #888; }
+
+  .btn-add {
+    background: var(--earth); color: var(--cream);
+    border: none; border-radius: 6px; padding: .5rem .9rem;
+    font-family: 'Syne', sans-serif; font-weight: 700; font-size: .78rem;
+    cursor: pointer; display: flex; align-items: center; gap: .3rem;
+    transition: background .2s;
+    white-space: nowrap;
+  }
+  .btn-add:hover { background: var(--moss); }
+  .btn-add.tech-btn { background: var(--tech-blue); }
+  .btn-add.tech-btn:hover { background: var(--tech-cyan); }
+
+    /* ─── BANNER ─── */
+  .promo-banner {
+    margin: 0 2.5rem 3rem;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--tech-blue), #0A2540);
+    padding: 2.5rem 3rem;
+    display: grid; grid-template-columns: 1fr auto;
+    align-items: center; gap: 2rem;
+    position: relative; overflow: hidden;
+  }
+  .promo-banner::before {
+    content: '';
+    position: absolute; right: -40px; top: -40px;
+    width: 220px; height: 220px;
+    border-radius: 50%; border: 40px solid rgba(0,184,217,.15);
+  }
+  .promo-banner::after {
+    content: '';
+    position: absolute; right: 80px; bottom: -60px;
+    width: 140px; height: 140px;
+    border-radius: 50%; border: 25px solid rgba(0,184,217,.08);
+  }
+
+  .promo-label {
+    font-size: .72rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+    color: var(--tech-cyan); margin-bottom: .5rem;
+  }
+  .promo-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.9rem; color: #fff; line-height: 1.15;
+    margin-bottom: .7rem;
+  }
+  .promo-desc { color: rgba(255,255,255,.6); font-size: .88rem; max-width: 400px; line-height: 1.5; }
+  .promo-cta {
+    background: var(--tech-cyan); color: var(--earth);
+    border: none; border-radius: 6px; padding: .85rem 2rem;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: .88rem;
+    letter-spacing: .05em; cursor: pointer; white-space: nowrap;
+    position: relative; z-index: 2;
+    transition: background .2s, transform .15s;
+  }
+  .promo-cta:hover { background: #fff; transform: scale(1.04); }
+
+  /* ─── TRUST STRIP ─── */
+  .trust-strip {
+    background: var(--moss);
+    padding: 1.2rem 2.5rem;
+    display: flex; justify-content: center; gap: 3rem;
+    flex-wrap: wrap;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: .6rem;
+    color: var(--cream); font-size: .8rem; font-weight: 600;
+  }
+  .trust-item span { font-size: 1.2rem; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--earth);
+    padding: 3rem 2.5rem 2rem;
+    color: var(--sand);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 2.5rem; margin-bottom: 2.5rem;
+  }
+  .footer-brand .logo { margin-bottom: 1rem; display: inline-flex; }
+  .footer-brand p { font-size: .85rem; line-height: 1.6; color: rgba(232,213,163,.65); }
+  .footer-col h4 {
+    font-size: .75rem; font-weight: 700; letter-spacing: .1em;
+    text-transform: uppercase; color: var(--wheat);
+    margin-bottom: 1rem;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: .5rem; }
+  .footer-col ul li a {
+    font-size: .83rem; color: rgba(232,213,163,.6);
+    text-decoration: none; transition: color .2s;
+  }
+  .footer-col ul li a:hover { color: var(--cream); }
+  .footer-bottom {
+    border-top: 1px solid rgba(200,168,75,.15);
+    padding-top: 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: .75rem; color: rgba(232,213,163,.4);
+  }
+
+  /* ─── CART SIDEBAR ─── */
+  .cart-overlay {
+    position: fixed; inset: 0; background: rgba(44,26,14,.6);
+    z-index: 200; opacity: 0; pointer-events: none;
+    transition: opacity .3s;
+    backdrop-filter: blur(3px);
+  }
+  .cart-overlay.open { opacity: 1; pointer-events: all; }
+
+  .cart-sidebar {
+    position: fixed; top: 0; right: -400px; bottom: 0;
+    width: 380px; background: var(--white);
+    z-index: 201; transition: right .35s cubic-bezier(.4,0,.2,1);
+    display: flex; flex-direction: column;
+    box-shadow: -8px 0 30px rgba(44,26,14,.2);
+  }
+  .cart-sidebar.open { right: 0; }
+
+  .cart-header {
+    background: var(--earth);
+    padding: 1.2rem 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .cart-header h3 {
+    font-family: 'DM Serif Display', serif;
+    color: var(--cream); font-size: 1.2rem;
+  }
+  .close-cart {
+    background: none; border: none; color: var(--sand);
+    font-size: 1.3rem; cursor: pointer;
+    transition: color .2s;
+  }
+  .close-cart:hover { color: var(--wheat); }
+
+  .cart-items { flex: 1; overflow-y: auto; padding: 1rem; }
+
+  .cart-item {
+    display: flex; align-items: center; gap: 1rem;
+    padding: .8rem 0; border-bottom: 1px solid rgba(44,26,14,.08);
+  }
+  .cart-item-img {
+    width: 56px; height: 56px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; flex-shrink: 0;
+  }
+  .cart-item-info { flex: 1; }
+  .cart-item-name { font-size: .85rem; font-weight: 700; color: var(--earth); }
+  .cart-item-price { font-family: 'Space Mono', monospace; font-size: .9rem; color: var(--moss); margin-top: .2rem; }
+  .cart-item-qty {
+    display: flex; align-items: center; gap: .4rem;
+  }
+  .qty-btn {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: var(--sand); border: none; cursor: pointer;
+    font-size: .9rem; display: flex; align-items: center; justify-content: center;
+    transition: background .2s;
+  }
+  .qty-btn:hover { background: var(--wheat); }
+  .qty-num { font-family: 'Space Mono', monospace; font-size: .85rem; min-width: 20px; text-align: center; }
+
+  .cart-footer {
+    border-top: 2px solid rgba(44,26,14,.1);
+    padding: 1.2rem 1.5rem;
+  }
+  .cart-total {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 1rem;
+  }
+  .cart-total-label { font-weight: 700; }
+  .cart-total-price { font-family: 'Space Mono', monospace; font-size: 1.2rem; font-weight: 700; color: var(--earth); }
+
+  .btn-checkout {
+    width: 100%; background: var(--earth); color: var(--cream);
+    border: none; border-radius: 8px; padding: .9rem;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: .9rem;
+    letter-spacing: .05em; cursor: pointer;
+    transition: background .2s;
+  }
+  .btn-checkout:hover { background: var(--moss); }
+
+  .cart-empty {
+    text-align: center; padding: 3rem 1rem; color: #aaa;
+  }
+  .cart-empty span { font-size: 3rem; display: block; margin-bottom: 1rem; }
+
+  /* ─── TOAST ─── */
+  .toast {
+    position: fixed; bottom: 2rem; left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--moss); color: #fff;
+    padding: .75rem 1.5rem; border-radius: 8px;
+    font-size: .85rem; font-weight: 600;
+    z-index: 300; transition: transform .3s;
+    box-shadow: 0 8px 24px rgba(0,0,0,.2);
+    white-space: nowrap;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── MODAL ─── */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(44,26,14,.7);
+    z-index: 300; opacity: 0; pointer-events: none;
+    transition: opacity .3s; backdrop-filter: blur(4px);
+    display: flex; align-items: center; justify-content: center; padding: 1rem;
+  }
+  .modal-overlay.open { opacity: 1; pointer-events: all; }
+
+  .modal {
+    background: var(--white); border-radius: 16px;
+    max-width: 540px; width: 100%;
+    padding: 2rem;
+    transform: scale(.95); transition: transform .3s;
+    max-height: 90vh; overflow-y: auto;
+  }
+  .modal-overlay.open .modal { transform: scale(1); }
+
+  .modal-img {
+    height: 200px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 5rem; margin-bottom: 1.5rem;
+  }
+  .modal-name {
+    font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--earth);
+    margin-bottom: .5rem;
+  }
+  .modal-desc { font-size: .9rem; color: #666; line-height: 1.6; margin-bottom: 1rem; }
+  .modal-price {
+    font-family: 'Space Mono', monospace; font-size: 1.4rem; font-weight: 700;
+    color: var(--earth); margin-bottom: 1.5rem;
+  }
+  .modal-footer { display: flex; gap: 1rem; }
+  .modal-footer .btn-add { flex: 1; justify-content: center; padding: .85rem; font-size: .88rem; }
+  .close-modal {
+    position: absolute; top: 1rem; right: 1rem;
+    background: var(--sand); border: none; border-radius: 50%;
+    width: 32px; height: 32px; cursor: pointer; font-size: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    z-index: 10;
+  }
+
+   /* responsive */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    nav { display: none; }
+    .promo-banner { grid-template-columns: 1fr; }
+    .promo-banner::before, .promo-banner::after { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">
+    <span class="logo-dot"></span>Agro<span>Tech</span>
+  </a>
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#">Agriculture</a>
+    <a href="#">Technologie</a>
+    <a href="#">Promotions</a>
+    <a href="#">À propos</a>
+  </nav>
+  <div class="header-actions">
+    <div class="search-bar">
+      <svg width="14" height="14" fill="none" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" placeholder="Rechercher..." id="searchInput" oninput="filterProducts()">
+    </div>
+    <button class="btn-cart" onclick="toggleCart()">
+      🛒 Panier <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">🌱 Marché Agri-Tech 2026</div>
+    <h1>Cultivez l'avenir avec les <em>bonnes outils</em></h1>
+    <p class="hero-sub">Semences biologiques, équipements agricoles et technologies de pointe — tout en un seul endroit.</p>
+    <div class="hero-ctas">
+      <button class="btn-primary" onclick="scrollTo({top:800,behavior:'smooth'})">Explorer le catalogue</button>
+      <button class="btn-outline">Nos offres</button>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stats">
+      <div class="stat-card"><div class="stat-icon">🌾</div><span class="stat-num">1 200+</span><div class="stat-label">Produits agricoles</div></div>
+      <div class="stat-card"><div class="stat-icon">💻</div><span class="stat-num">340+</span><div class="stat-label">Solutions tech</div></div>
+      <div class="stat-card"><div class="stat-icon">🌍</div><span class="stat-num">48</span><div class="stat-label">Pays livrés</div></div>
+      <div class="stat-card"><div class="stat-icon">⭐</div><span class="stat-num">4.9</span><div class="stat-label">Note moyenne</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CATEGORY TABS -->
+<div class="categories">
+  <button class="cat-tab active" onclick="filterCat('tous', this)">Tous les produits</button>
+  <button class="cat-tab" onclick="filterCat('semences', this)">🌱 Semences & Plants</button>
+  <button class="cat-tab" onclick="filterCat('fertilisants', this)">🧪 Fertilisants</button>
+  <button class="cat-tab" onclick="filterCat('equipement', this)">🔧 Équipement</button>
+  <button class="cat-tab" onclick="filterCat('capteurs', this)">📡 Capteurs IoT</button>
+  <button class="cat-tab" onclick="filterCat('drones', this)">🚁 Drones Agri</button>
+  <button class="cat-tab" onclick="filterCat('logiciels', this)">💾 Logiciels</button>
+  <button class="cat-tab" onclick="filterCat('solaire', this)">☀️ Énergie Solaire</button>
+</div>
+
+<!-- PRODUCTS -->
+<section class="section">
+  <div class="section-header">
+    <div>
+      <div class="section-label">Notre sélection</div>
+      <h2 class="section-title">Produits <em>populaires</em></h2>
+    </div>
+    <a href="#" class="see-all">Voir tout →</a>
+  </div>
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- PROMO BANNER -->
+<div class="promo-banner">
+  <div>
+    <div class="promo-label">Offre limitée · Jusqu'au 30 avril</div>
+    <h3 class="promo-title">Kits Smart Farming<br>à -30% cette semaine</h3>
+    <p class="promo-desc">Capteurs de sol, stations météo connectées, et logiciels d'analyse — commencez votre transformation numérique dès aujourd'hui.</p>
+  </div>
+  <button class="promo-cta">Profiter de l'offre</button>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-item"><span>🚚</span> Livraison express 48h</div>
+  <div class="trust-item"><span>🌿</span> Produits certifiés bio</div>
+  <div class="trust-item"><span>🔄</span> Retours gratuits 30 jours</div>
+  <div class="trust-item"><span>🔒</span> Paiement sécurisé</div>
+  <div class="trust-item"><span>🎧</span> Support 7j/7</div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo"><span class="logo-dot"></span>Agro<span>Tech</span></a>
+      <p>La plateforme de référence pour les agriculteurs modernes. Nous réunissons le meilleur de l'agriculture et de la technologie pour nourrir le monde de demain.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Agriculture</h4>
+      <ul>
+        <li><a href="#">Semences</a></li>
+        <li><a href="#">Fertilisants</a></li>
+        <li><a href="#">Outillage</a></li>
+        <li><a href="#">Irrigation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Technologie</h4>
+      <ul>
+        <li><a href="#">Drones</a></li>
+        <li><a href="#">Capteurs IoT</a></li>
+        <li><a href="#">Logiciels</a></li>
+        <li><a href="#">Énergie Solaire</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Aide</h4>
+      <ul>
+        <li><a href="#">Centre d'aide</a></li>
+        <li><a href="#">Suivi commande</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Partenaires</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AgroTech Market. Tous droits réservés.</span>
+    <span>Conçu avec ❤️ pour les agriculteurs du monde</span>
+  </div>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>🛒 Mon Panier</h3>
+    <button class="close-cart" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-total">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-price" id="cartTotal">0 €</span>
+    </div>
+    <button class="btn-checkout">Passer la commande →</button>
+  </div>
+</div>
+
+  <!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+const products = [
+  { id:1, name:"Semences Blé Bio", cat:"semences", type:"agro", emoji:"🌾", badge:"bio", badgeLabel:"Bio", price:24.90, oldPrice:31.50, unit:"/kg", rating:4.8, reviews:142, desc:"Semences de blé biologiques certifiées AB, adaptées aux sols argileux et calcaires. Rendement exceptionnel de 6-8 t/ha." },
+  { id:2, name:"Capteur Sol IoT Pro", cat:"capteurs", type:"tech", emoji:"📡", badge:"new", badgeLabel:"Nouveau", price:189.00, oldPrice:null, unit:"/unité", rating:4.9, reviews:67, desc:"Capteur intelligent mesurant l'humidité, le pH, la température et les nutriments du sol en temps réel. Compatible avec toutes les plateformes cloud." },
+  { id:3, name:"Drone Pulvérisateur X9", cat:"drones", type:"tech", emoji:"🚁", badge:"stock", badgeLabel:"Stock limité", price:3499.00, oldPrice:3999.00, unit:"/unité", rating:4.7, reviews:28, desc:"Drone agricole autonome avec réservoir 20L, portée 5 km, autonomie 45 min. Idéal pour les grandes cultures et le traitement phytosanitaire." },
+  { id:4, name:"Engrais Organique NPK", cat:"fertilisants", type:"agro", emoji:"🧪", badge:"promo", badgeLabel:"Promo", price:45.00, oldPrice:60.00, unit:"/sac 25kg", rating:4.6, reviews:203, desc:"Engrais organique équilibré NPK 10-5-15 enrichi en oligo-éléments. Améliore la structure du sol sur le long terme." },
+  { id:5, name:"Station Météo Connectée", cat:"capteurs", type:"tech", emoji:"🌤️", badge:"new", badgeLabel:"Nouveau", price:299.00, oldPrice:null, unit:"/unité", rating:4.8, reviews:45, desc:"Station météo professionnelle avec prévisions 7 jours, alertes gel et sécheresse, connectée à votre smartphone." },
+  { id:6, name:"Semences Tomates Hybrides", cat:"semences", type:"agro", emoji:"🍅", badge:"bio", badgeLabel:"Bio", price:12.50, oldPrice:null, unit:"/sachet", rating:4.5, reviews:318, desc:"Variétés hybrides résistantes aux maladies, production abondante jusqu'à 15 kg/plant. Convient à la culture sous serre et en plein champ." },
+  { id:7, name:"Logiciel FarmManager 360", cat:"logiciels", type:"tech", emoji:"💻", badge:"new", badgeLabel:"Nouveau", price:79.00, oldPrice:99.00, unit:"/mois", rating:4.9, reviews:86, desc:"Gestion complète de votre exploitation : planification des cultures, suivi financier, analyse de rendement avec IA intégrée." },
+  { id:8, name:"Panneau Solaire Agri 400W", cat:"solaire", type:"tech", emoji:"☀️", badge:"promo", badgeLabel:"Promo", price:349.00, oldPrice:420.00, unit:"/unité", rating:4.7, reviews:51, desc:"Panneau solaire haute performance spécialement conçu pour les exploitations agricoles. Compatible systèmes de pompage et irrigation solaire." },
+  { id:9, name:"Composteur Pro 2000L", cat:"equipement", type:"agro", emoji:"♻️", badge:null, badgeLabel:"", price:189.00, oldPrice:null, unit:"/unité", rating:4.4, reviews:92, desc:"Composteur industriel rotatif 2000 litres, traitement accéléré des déchets organiques en 3 semaines. Idéal pour les fermes de taille moyenne." },
+  { id:10, name:"Système d'Irrigation IA", cat:"equipement", type:"tech", emoji:"💧", badge:"new", badgeLabel:"Nouveau", price:1250.00, oldPrice:null, unit:"/kit", rating:4.8, reviews:33, desc:"Système d'irrigation automatisé piloté par IA, économise jusqu'à 40% d'eau en analysant météo, humidité du sol et besoins des plantes." },
+  { id:11, name:"Semences Maïs OPV", cat:"semences", type:"agro", emoji:"🌽", badge:null, badgeLabel:"", price:18.00, oldPrice:null, unit:"/kg", rating:4.3, reviews:177, desc:"Variétés à pollinisation ouverte adaptées aux conditions sahéliennes. Maturité 90 jours, tolérance sécheresse élevée." },
+  { id:12, name:"Robot de Désherbage", cat:"drones", type:"tech", emoji:"🤖", badge:"stock", badgeLabel:"Stock limité", price:5800.00, oldPrice:6500.00, unit:"/unité", rating:4.9, reviews:19, desc:"Robot autonome de désherbage mécanique, détection par vision par ordinateur. Couvre 2 ha/jour sans produits chimiques." },
+];
+
+let cart = [];
+let currentModal = null;
+let activeCategory = 'tous';
+
+function renderProducts(list) {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = list.map(p => `
+    <div class="product-card" onclick="openModal(${p.id})">
+      <div class="product-img ${p.type}">
+        ${p.badge ? `<span class="product-badge badge-${p.badge}">${p.badgeLabel}</span>` : ''}
+        <button class="product-fav" id="fav-${p.id}" onclick="toggleFav(event,${p.id})">🤍</button>
+        ${p.emoji}
+      </div>
+      <div class="product-body">
+        <div class="product-cat ${p.type === 'tech' ? 'tech-cat' : ''}">${p.type === 'tech' ? '💻 Technologie' : '🌱 Agriculture'}</div>
+        <div class="product-name">${p.name}</div>
+        <div class="product-rating">
+          <span class="stars">${'★'.repeat(Math.floor(p.rating))}${'☆'.repeat(5 - Math.floor(p.rating))}</span>
+          <span class="rating-count">(${p.reviews})</span>
+        </div>
+        <div class="product-footer">
+          <div class="price-block">
+            ${p.oldPrice ? `<div class="price-old">${p.oldPrice.toFixed(2)} €</div>` : ''}
+            <div class="price">${p.price.toFixed(2)} €<span class="price-unit"> ${p.unit}</span></div>
+          </div>
+          <button class="btn-add ${p.type === 'tech' ? 'tech-btn' : ''}" onclick="addToCart(event, ${p.id})">
+            + Ajouter
+          </button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterCat(cat, btn) {
+  activeCategory = cat;
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+
+function filterProducts() {
+  applyFilters();
+}
+
+function applyFilters() {
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  let list = products;
+  if (activeCategory !== 'tous') list = list.filter(p => p.cat === activeCategory);
+  if (q) list = list.filter(p => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q));
+  renderProducts(list);
+}
+
+function toggleFav(e, id) {
+  e.stopPropagation();
+  const btn = document.getElementById(`fav-${id}`);
+  if (btn.classList.contains('active')) {
+    btn.classList.remove('active');
+    btn.textContent = '🤍';
+  } else {
+    btn.classList.add('active');
+    btn.textContent = '❤️';
+  }
+}
+
+function addToCart(e, id) {
+  e.stopPropagation();
+  const product = products.find(p => p.id === id);
+  const existing = cart.find(c => c.id === id);
+  if (existing) existing.qty++;
+  else cart.push({...product, qty: 1});
+  updateCartUI();
+  showToast(`✅ ${product.name} ajouté au panier`);
+}
+
+function addFromModal() {
+  if (currentModal) {
+    addToCart({stopPropagation:()=>{}}, currentModal.id);
+    closeModalDirect();
+  }
+}
+
+function updateCartUI() {
+  const count = cart.reduce((a, c) => a + c.qty, 0);
+  document.getElementById('cartCount').textContent = count;
+
+  const cartItems = document.getElementById('cartItems');
+  const total = cart.reduce((a, c) => a + c.price * c.qty, 0);
+  document.getElementById('cartTotal').textContent = total.toFixed(2) + ' €';
+
+  if (cart.length === 0) {
+    cartItems.innerHTML = `<div class="cart-empty"><span>🛒</span>Votre panier est vide</div>`;
+    return;
+  }
+
+  cartItems.innerHTML = cart.map(item => `
+    <div class="cart-item">
+      <div class="cart-item-img ${item.type}">${item.emoji}</div>
+      <div class="cart-item-info">
+        <div class="cart-item-name">${item.name}</div>
+        <div class="cart-item-price">${(item.price * item.qty).toFixed(2)} €</div>
+      </div>
+      <div class="cart-item-qty">
+        <button class="qty-btn" onclick="changeQty(${item.id}, -1)">−</button>
+        <span class="qty-num">${item.qty}</span>
+        <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function changeQty(id, delta) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  item.qty += delta;
+  if (item.qty <= 0) cart = cart.filter(c => c.id !== id);
+  updateCartUI();
+}
+
+function toggleCart() {
+  document.getElementById('cartOverlay').classList.toggle('open');
+  document.getElementById('cartSidebar').classList.toggle('open');
+}
+
+function openModal(id) {
+  const p = products.find(x => x.id === id);
+  currentModal = p;
+  document.getElementById('modalImg').className = `modal-img ${p.type}`;
+  document.getElementById('modalImg').textContent = p.emoji;
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalDesc').textContent = p.desc;
+  document.getElementById('modalPrice').textContent = p.price.toFixed(2) + ' € ' + p.unit;
+  document.getElementById('modalAddBtn').className = `btn-add ${p.type === 'tech' ? 'tech-btn' : ''}`;
+  document.getElementById('modalOverlay').classList.add('open');
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModalDirect();
+}
+
+function closeModalDirect() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  currentModal = null;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+// Init
+renderProducts(products);
+updateCartUI();
+</script>
+</body>
+</html>
